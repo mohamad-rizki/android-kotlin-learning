@@ -1,11 +1,11 @@
 package com.github.android.kotlinacademy
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,11 +15,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val list = findViewById<RecyclerView>(R.id.rv_club)
         initData()
 
-        list.layoutManager = LinearLayoutManager(this)
-        list.adapter = ItemAdapter(this, items) {
+        rv_club.layoutManager = LinearLayoutManager(this)
+        rv_club.adapter = ItemAdapter(this, items) {
             Log.d("Items ", it.name)
             val toast = Toast.makeText(applicationContext, it.name, Toast.LENGTH_SHORT)
             toast.show()
